@@ -13,7 +13,7 @@ import com.rm.crudclientsapi.dto.ClientDto;
 
 @Entity
 public class Client implements Serializable {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -102347617765968938L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
