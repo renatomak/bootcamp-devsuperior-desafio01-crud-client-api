@@ -1,5 +1,4 @@
 package com.rm.crudclientsapi.entities;
-
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
