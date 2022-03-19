@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.rm.crudclientsapi.dto.ClientDto;
+
 @Entity
 public class Client implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -26,6 +28,31 @@ public class Client implements Serializable {
 	private Double income;
 	private Instant birthDate;
 	private Integer children;
+		
+	public Client(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.cpf = cpf;
+		this.income = income;
+		this.birthDate = birthDate;
+		this.children = children;
+	}
+	
+	
+	public Client() {
+	}
+	
+	public Client(ClientDto dto) {
+		this.id = dto.getId();
+		this.name = dto.getName();
+		this.cpf = dto.getCpf();
+		this.income = dto.getIncome();
+		this.birthDate = dto.getBirthDate();
+		this.children = dto.getChildren();
+	}
+
+
 	public Long getId() {
 		return id;
 	}
