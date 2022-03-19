@@ -8,10 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.rm.crudclientsapi.dto.ClientDto;
 
 @Entity
+@Table(name = "tb_client")
 public class Client implements Serializable {
 	private static final long serialVersionUID = -102347617765968938L;
 
