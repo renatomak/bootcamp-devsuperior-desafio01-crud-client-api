@@ -1,4 +1,4 @@
-package com.rm.crudclientsapi.dto;
+package com.rm.clients.entities;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
@@ -8,23 +8,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-import com.rm.crudclientsapi.entities.Client;
+import com.rm.clients.dto.ClientDto;
 
+@Entity
+@Table(name = "tb_client")
+public class Client implements Serializable {
+	private static final long serialVersionUID = -102347617765968938L;
 
-public class ClientDto implements Serializable {
-	private static final long serialVersionUID = 1L;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(nullable = false)
 	private String name;
+	
+	@Column(nullable = false)
 	private String cpf;
+	
 	private Double income;
 	private Instant birthDate;
 	private Integer children;
-	
-	
-	
-	public ClientDto(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
+		
+	public Client(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -35,20 +42,17 @@ public class ClientDto implements Serializable {
 	}
 	
 	
-	
-	public ClientDto() {
+	public Client() {
 	}
 	
-	
-	public ClientDto(Client entity) {
-		this.id = entity.getId();
-		this.name = entity.getName();
-		this.cpf = entity.getCpf();
-		this.income = entity.getIncome();
-		this.birthDate = entity.getBirthDate();
-		this.children = entity.getChildren();
+	public Client(ClientDto dto) {
+		this.id = dto.getId();
+		this.name = dto.getName();
+		this.cpf = dto.getCpf();
+		this.income = dto.getIncome();
+		this.birthDate = dto.getBirthDate();
+		this.children = dto.getChildren();
 	}
-
 
 
 	public Long getId() {
@@ -104,7 +108,7 @@ public class ClientDto implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ClientDto other = (ClientDto) obj;
+		Client other = (Client) obj;
 		return Objects.equals(id, other.id);
 	}
 	

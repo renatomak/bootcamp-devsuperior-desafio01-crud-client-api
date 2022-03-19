@@ -1,4 +1,4 @@
-package com.rm.crudclientsapi.resources;
+package com.rm.clients.resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rm.crudclientsapi.dto.ClientDto;
-import com.rm.crudclientsapi.services.ClientService;
+import com.rm.clients.dto.ClientDto;
+import com.rm.clients.services.ClientService;
 
 import org.springframework.data.domain.Sort;
 
